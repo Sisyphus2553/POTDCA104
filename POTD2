@@ -1,0 +1,30 @@
+MINIMUM NUMBER OF OPERATIONS
+
+class Solution {
+public:
+    int minimumOperations(vector<int>& nums) {
+     int n = nums.size();
+     int s = 0;
+     for(int i = 0;i<n;i++){
+        if(nums[i]%3!=0){
+            if((nums[i]+1)%3==0 || (nums[i]-1)%3==0){
+                s++;
+            }
+        }
+     }
+     return s;   
+    }
+};
+
+SINGLE NUMBER
+
+class Solution {
+public:
+    int singleNumber(vector<int>& nums) {
+        int num = 0;
+       for(int i=0;i<nums.size();i++){
+          num = num ^ nums[i];
+       } 
+       return num;
+    } 
+};
