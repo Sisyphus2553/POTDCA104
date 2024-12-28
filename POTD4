@@ -1,0 +1,62 @@
+class Solution {
+public:
+    void sortColors(vector<int>& a) {
+     int l = 0;
+     int m = 0;
+     int h = a.size()-1;
+     while(m<=h){
+        if(a[m]==1){
+            m++;
+        }else if(a[m]==0){
+            swap(a[l],a[m]);
+            l++;
+            m++;
+        }else{
+            swap(a[m],a[h]);
+            h--;
+        }
+     }   
+    }
+};
+
+
+
+
+
+
+
+
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int n;
+    int c=0;
+    cin>>n;
+    string s;
+    cin>>s;
+    string c1 = s;
+    for(int k = 0;k<n;k++){
+        s[k]=toupper(s[k]);
+        c1[k]=toupper(c1[k]);
+    }
+    
+    for(int i=0;i<n;i++){
+        
+       if(s[i]>=65 && s[i]<=90){
+        c++;
+        for(int j = 0;j<n;j++){
+         if(c1[i]==s[j])s[j]=' ';
+        }       
+    }
+        
+    }
+    
+    
+    if(c==26){
+        cout<<"yes";
+    }else{
+        cout<<"no";
+    }
+    
+}
+   
