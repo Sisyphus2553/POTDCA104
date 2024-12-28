@@ -1,0 +1,52 @@
+class Solution {
+public:
+    vector<int> smallerNumbersThanCurrent(vector<int>& nums) {
+        int n = nums.size();
+        vector<int> n1;
+        int c=0;
+        for(int i = 0;i<n;i++){
+            for(int j = 0;j<n;j++){
+               if(nums[i]>nums[j]){
+                  c++;
+               }
+            }
+            n1.push_back(c);
+            c=0;
+        }
+        return n1;
+    }
+};
+
+
+
+
+class Solution {
+public:
+    int minimumMoves(string s) {
+     int l = 0;
+     int c =0;
+     int n =s.length();
+     while(l<n){
+      if(s[l]=='X'){
+       if(l+2<=n-1){
+        s.replace(l,3,"000");
+        c++;
+        l=l+3;
+       }else if(n-l==2){
+            s.replace(l,2,"00");
+            c++;
+            l+=2;
+        }else{
+            s.replace(l,1,"0");
+            c++;
+            l++;
+        }
+       
+
+      }else{
+        l++;
+      }
+     }
+    return c;   
+    }
+};
